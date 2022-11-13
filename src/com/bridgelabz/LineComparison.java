@@ -6,38 +6,29 @@ public class LineComparison {
 
     public static void main(String[] args) {
 
-        System.out.println("Welcome to line comparison program");
+        System.out.println("Welcome to Line Comparison Computation Program");
+        Points point = new Points();
+        Length line = new Length();
 
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("enter x1 and y1");
-        int x1 = scanner.nextInt();
-        int y1 = scanner.nextInt();
-        System.out.println("the values of (x1,x2) ;" + x1 + "," + y1);
-        System.out.println("enter x2 and y2");
-        int x2 = scanner.nextInt();
-        int y2 = scanner.nextInt();
-        System.out.println("the values of (x2,y2) ;" + x2 + "," + y2);
-        double length = Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
-        System.out.println("length of line :" + length);
-        double length1 = Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
-        System.out.println("length of line :" + length1);
-        System.out.println("enter x3 and y3");
-        int x3 = scanner.nextInt();
-        int y3 = scanner.nextInt();
-        System.out.println("the values of (x3,y3) ;" + x3 + "," + y3);
-        System.out.println("enter x4 and y4");
-        int x4 = scanner.nextInt();
-        int y4 = scanner.nextInt();
-        System.out.println("the values of (x4,y4) ;" + x4 + "," + y4);
-        double length2 = Math.sqrt(Math.pow(x4 - x3, 2) + Math.pow(y4 - y3, 2));
-        System.out.println("length of line :" + length2);
-        System.out.println("length of lines are : ");
-        System.out.println("line1:" + length1);
-        System.out.println("line2:" + length2);
-        if (length1 > length2) {
-            System.out.println("line1 is greater than line2");
-        } else if (length1 < length2) {
-            System.out.println("line1 is less than line2");
+        System.out.println("Enter points for First line:\n");
+        point.getPoints();
+
+        Double length1 = line.length(point.getX1(), point.getY1(), point.getX2(), point.getY2());
+        System.out.println("Length of line 1 is: " + length1);
+
+        System.out.println("\nEnter points for second line:");
+        point.getPoints();
+
+        Double length2 = line.length(point.getX1(), point.getY1(), point.getX2(), point.getY2());
+        System.out.println("Length of line 2 is: " + length2);
+        System.out.println("--------------------------------");
+
+        if (length1.equals(length2)) {
+            System.out.println("Lines are equal");
+        } else if (length1.compareTo(length2) > 0) {
+            System.out.println("Line 1 is greater than Line 2");
+        } else if (length1.compareTo(length2) < 0) {
+            System.out.println("Line 2 is greater than Line 1");
         }
     }
 }
